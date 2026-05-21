@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Álbum Mundial Panini ⚽</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="album_mundial.css">
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <span class="ball-deco">⚽</span>
+  <span class="ball-deco">⚽</span>
+  <span class="ball-deco">⚽</span>
+  <div class="hero-badge">COLECCIÓN OFICIAL</div>
+  <h1>WORLD CUP</h1>
+  <div class="hero-sub">Álbum de Figuritas ⚽ Edición Especial</div>
+</header>
+
+<!-- MODAL SOBRE -->
+<div class="modal-overlay" id="modalSobre">
+  <div class="modal-title" id="modalSobreTitle">¡ABRIENDO SOBRE! 🎴</div>
+  <div class="cards-reveal" id="cardsReveal"></div>
+  <button class="modal-close" onclick="closeModal()">✕ CERRAR</button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- SOBRES -->
+<section class="sobres-section">
+  <h2 class="section-title">🎁 SOBRE DE FIGURITAS</h2>
+  <p class="section-sub">Cada sobre trae 5 figuritas al azar de cualquier selección</p>
+  <div class="sobres-container">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+
+      <!-- SOBRE SVG LOGO -->
+      <div class="sobre" id="sobreUnico" style="width:180px;height:290px;">
+        <div class="sobre-inner" style="background:none;border:none;box-shadow:none;overflow:visible;">
+          <svg id="sobreSVG" viewBox="0 0 180 290" xmlns="http://www.w3.org/2000/svg" style="width:180px;height:290px;cursor:pointer;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.8));transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-12px) rotateY(6deg) scale(1.04)'" onmouseout="this.style.transform=''">
+            <defs>
+              <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#1a0533"/>
+                <stop offset="35%" style="stop-color:#0d1f6e"/>
+                <stop offset="70%" style="stop-color:#0a4a2a"/>
+                <stop offset="100%" style="stop-color:#5a0a1a"/>
+              </linearGradient>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#FFD700"/>
+                <stop offset="50%" style="stop-color:#FFF176"/>
+                <stop offset="100%" style="stop-color:#FFA500"/>
+              </linearGradient>
+              <linearGradient id="shineGrad" x1="0%" y1="0%" x2="30%" y2="100%">
+                <stop offset="0%" style="stop-color:rgba(255,255,255,0.18)"/>
+                <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+              </linearGradient>
+              <radialGradient id="glowBall" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0.5"/>
+                <stop offset="100%" style="stop-color:#FFD700;stop-opacity:0"/>
+              </radialGradient>
+              <clipPath id="cardClip">
+                <rect x="0" y="0" width="180" height="290" rx="14" ry="14"/>
+              </clipPath>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- FONDO -->
+            <rect x="0" y="0" width="180" height="290" rx="14" fill="url(#bgGrad)" clip-path="url(#cardClip)"/>
+
+            <!-- Patrón diagonal de líneas sutiles -->
+            <g clip-path="url(#cardClip)" opacity="0.07">
+              <line x1="-20" y1="0" x2="60" y2="290" stroke="#fff" stroke-width="18"/>
+              <line x1="20" y1="0" x2="100" y2="290" stroke="#fff" stroke-width="18"/>
+              <line x1="60" y1="0" x2="140" y2="290" stroke="#fff" stroke-width="18"/>
+              <line x1="100" y1="0" x2="180" y2="290" stroke="#fff" stroke-width="18"/>
+              <line x1="140" y1="0" x2="220" y2="290" stroke="#fff" stroke-width="18"/>
+            </g>
+
+            <!-- Borde dorado externo -->
+            <rect x="1.5" y="1.5" width="177" height="287" rx="13" fill="none" stroke="url(#goldGrad)" stroke-width="2.5"/>
+            <!-- Borde dorado interno fino -->
+            <rect x="6" y="6" width="168" height="278" rx="10" fill="none" stroke="rgba(255,215,0,0.25)" stroke-width="1"/>
+
+            <!-- Brillo superior izquierdo -->
+            <rect x="0" y="0" width="180" height="290" rx="14" fill="url(#shineGrad)" clip-path="url(#cardClip)"/>
+
+            <!-- Banda superior de colores de selecciones -->
+            <rect x="0" y="0" width="30" height="8" rx="0" fill="#009C3B" clip-path="url(#cardClip)"/>
+            <rect x="30" y="0" width="20" height="8" fill="#FFDF00" clip-path="url(#cardClip)"/>
+            <rect x="50" y="0" width="20" height="8" fill="#74ACDF" clip-path="url(#cardClip)"/>
+            <rect x="70" y="0" width="20" height="8" fill="#000000" clip-path="url(#cardClip)"/>
+            <rect x="90" y="0" width="20" height="8" fill="#FF6600" clip-path="url(#cardClip)"/>
+            <rect x="110" y="0" width="20" height="8" fill="#002395" clip-path="url(#cardClip)"/>
+            <rect x="130" y="0" width="20" height="8" fill="#AA151B" clip-path="url(#cardClip)"/>
+            <rect x="150" y="0" width="15" height="8" fill="#5EB6E4" clip-path="url(#cardClip)"/>
+            <rect x="165" y="0" width="15" height="8" fill="#006600" clip-path="url(#cardClip)"/>
+
+            <!-- Banda inferior de colores -->
+            <rect x="0" y="282" width="20" height="8" fill="#006600" clip-path="url(#cardClip)"/>
+            <rect x="20" y="282" width="20" height="8" fill="#5EB6E4" clip-path="url(#cardClip)"/>
+            <rect x="40" y="282" width="20" height="8" fill="#AA151B" clip-path="url(#cardClip)"/>
+            <rect x="60" y="282" width="20" height="8" fill="#002395" clip-path="url(#cardClip)"/>
+            <rect x="80" y="282" width="20" height="8" fill="#FF6600" clip-path="url(#cardClip)"/>
+            <rect x="100" y="282" width="20" height="8" fill="#000000" clip-path="url(#cardClip)"/>
+            <rect x="120" y="282" width="20" height="8" fill="#74ACDF" clip-path="url(#cardClip)"/>
+            <rect x="140" y="282" width="20" height="8" fill="#FFDF00" clip-path="url(#cardClip)"/>
+            <rect x="160" y="282" width="20" height="8" fill="#009C3B" clip-path="url(#cardClip)"/>
+
+            <!-- Pelota de fútbol central (decorativa grande) -->
+            <circle cx="90" cy="118" r="52" fill="url(#glowBall)" clip-path="url(#cardClip)"/>
+            <circle cx="90" cy="118" r="42" fill="rgba(0,0,0,0.3)" stroke="rgba(255,215,0,0.3)" stroke-width="1.5"/>
+            <!-- Hexágonos de la pelota -->
+            <text x="90" y="135" text-anchor="middle" font-size="56" font-family="serif" filter="url(#glow)">⚽</text>
+
+            <!-- Estrellas decorativas -->
+            <text x="26" y="30" font-size="11" text-anchor="middle" fill="url(#goldGrad)" filter="url(#glow)">★</text>
+            <text x="154" y="30" font-size="11" text-anchor="middle" fill="url(#goldGrad)" filter="url(#glow)">★</text>
+            <text x="90" y="26" font-size="9" text-anchor="middle" fill="url(#goldGrad)" opacity="0.6">★ ★ ★</text>
+
+            <!-- Texto "SOBRE DEL" -->
+            <text x="90" y="182" text-anchor="middle" font-family="'Anton', sans-serif" font-size="17" letter-spacing="4" fill="url(#goldGrad)" filter="url(#glow)">SOBRE DEL</text>
+
+            <!-- Texto "MUNDIAL" grande -->
+            <text x="90" y="207" text-anchor="middle" font-family="'Anton', sans-serif" font-size="30" letter-spacing="3" fill="url(#goldGrad)" filter="url(#glow)">MUNDIAL</text>
+
+            <!-- Líneas decorativas flanqueando "MUNDIAL" -->
+            <line x1="12" y1="197" x2="36" y2="197" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+            <line x1="144" y1="197" x2="168" y2="197" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.6"/>
+
+            <!-- Banderas pequeñas en fila -->
+            <text x="18" y="230" font-size="14">🇧🇷</text>
+            <text x="38" y="230" font-size="14">🇦🇷</text>
+            <text x="58" y="230" font-size="14">🇩🇪</text>
+            <text x="78" y="230" font-size="14">🇳🇱</text>
+            <text x="98" y="230" font-size="14">🏴󠁧󠁢󠁥󠁮󠁧󠁿</text>
+            <text x="118" y="230" font-size="14">🇫🇷</text>
+            <text x="138" y="230" font-size="14">🇪🇸</text>
+            <text x="18" y="250" font-size="14">🇺🇾</text>
+            <text x="38" y="250" font-size="14">🇵🇹</text>
+
+            <!-- 5 rectángulos de figuritas -->
+            <rect x="76" y="252" width="14" height="19" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <rect x="93" y="252" width="14" height="19" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <rect x="110" y="252" width="14" height="19" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <rect x="127" y="252" width="14" height="19" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+            <rect x="144" y="252" width="14" height="19" rx="2" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+
+            <!-- Texto "5 FIGURITAS" -->
+            <text x="90" y="278" text-anchor="middle" font-family="'Bebas Neue', cursive" font-size="10" letter-spacing="2" fill="rgba(255,255,255,0.35)">5 FIGURITAS ALEATORIAS</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- BOTÓN Y CONTADOR -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <button class="sobre-open-btn" id="btnAbrirSobre" onclick="openSobre()" style="width:180px;font-size:17px;padding:12px 0;">🎴 ABRIR SOBRE</button>
+        <div id="sobreDisponibles" style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:2px;color:var(--gold);"></div>
+        <div id="sobresCount" style="font-family:'Bebas Neue',cursive;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.25);">SOBRES ABIERTOS: 0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="sobres-section" id="quizSection" style="background:linear-gradient(180deg,var(--dark) 0%,#0d1f3c 100%);padding-top:20px;">
+  <h2 class="section-title">🧠 QUIZ MUNDIALERO</h2>
+  <p class="section-sub">Respondé 5 preguntas correctas para ganar un sobre</p>
+
+  <div style="max-width:680px;margin:0 auto;" id="quizContainer">
+
+    <!-- PROGRESO QUIZ -->
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:18px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <div style="font-family:'Bebas Neue',cursive;font-size:15px;letter-spacing:2px;color:rgba(255,255,255,0.4);">PROGRESO</div>
+      <div style="flex:1;height:10px;background:rgba(255,255,255,0.08);border-radius:5px;overflow:hidden;min-width:120px;">
+        <div id="quizBar" style="height:100%;width:0%;background:linear-gradient(90deg,#00c853,#69f0ae);border-radius:5px;transition:width 0.5s ease;"></div>
+      </div>
+      <div id="quizProgText" style="font-family:'Anton',sans-serif;font-size:18px;color:#00c853;white-space:nowrap;">0 / 5</div>
+      <div style="font-family:'Bebas Neue',cursive;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,0.25);">SOBRE AL LLEGAR A 5 ✓</div>
+    </div>
+
+    <!-- PREGUNTA -->
+    <div id="quizCard" style="background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:32px 28px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <span id="quizNum" style="font-family:'Bebas Neue',cursive;font-size:13px;letter-spacing:2px;color:rgba(255,255,255,0.3);">PREGUNTA 1</span>
+        <span id="quizStreak" style="font-family:'Bebas Neue',cursive;font-size:13px;letter-spacing:2px;color:var(--gold);">🔥 RACHA: 0</span>
+      </div>
+      <div id="quizQuestion" style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;line-height:1.4;margin-bottom:28px;min-height:60px;"></div>
+      <div id="quizOptions" style="display:flex;flex-direction:column;gap:12px;"></div>
+      <div id="quizFeedback" style="margin-top:20px;min-height:50px;"></div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;">
+      <button id="quizNextBtn" onclick="nextQuestion()" style="display:none;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#000;border:none;padding:12px 40px;border-radius:30px;font-family:'Bebas Neue',cursive;font-size:20px;letter-spacing:2px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform=''">SIGUIENTE PREGUNTA →</button>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<section class="nav-section">
+  <h2 class="section-title">📖 ÁLBUM COMPLETO</h2>
+  <p class="section-sub">Seleccioná una selección para ver sus figuritas</p>
+  <div class="team-tabs" id="teamTabs"></div>
+</section>
+
+<!-- ALBUM -->
+<main class="album-section" id="albumSection"></main>
+
+<footer>⚽ ALBUM MUNDIAL PANINI EDICIÓN ESPECIAL &nbsp;•&nbsp; COLECCIONÁ TODAS LAS FIGURITAS &nbsp;•&nbsp; ⚽</footer>
+
+<script>
+// ================================================================
+// DATA
+// ================================================================
+const TEAMS = [
+  {
+    id: 'brasil',
+    name: 'Brasil',
+    country: 'BRASIL',
+    flag: '🇧🇷',
+    emoji: '🟡',
+    worldCups: 5,
+    color1: '#009C3B',
+    color2: '#FFDF00',
+    textColor: '#fff',
+    founded: 1914,
+    players: [
+      { name: 'Alisson Becker', pos: 'POR', rating: 91, num: 1, special: '#FFDF00' },
+      { name: 'Ederson', pos: 'POR', rating: 89, num: 23, special: '#009C3B' },
+      { name: 'Danilo', pos: 'DEF', rating: 82, num: 2, special: '#FFDF00' },
+      { name: 'Marquinhos', pos: 'DEF', rating: 87, num: 5, special: '#009C3B' },
+      { name: 'Militão', pos: 'DEF', rating: 86, num: 3, special: '#FFDF00' },
+      { name: 'Alex Sandro', pos: 'DEF', rating: 82, num: 6, special: '#009C3B' },
+      { name: 'Renan Lodi', pos: 'DEF', rating: 80, num: 12, special: '#FFDF00' },
+      { name: 'Thiago Silva', pos: 'DEF', rating: 84, num: 14, special: '#009C3B' },
+      { name: 'Casemiro', pos: 'MED', rating: 89, num: 5, special: '#FFDF00' },
+      { name: 'Fred', pos: 'MED', rating: 83, num: 8, special: '#009C3B' },
+      { name: 'Fabinho', pos: 'MED', rating: 85, num: 14, special: '#FFDF00' },
+      { name: 'Lucas Paquetá', pos: 'MED', rating: 84, num: 10, special: '#009C3B' },
+      { name: 'Bruno Guimarães', pos: 'MED', rating: 84, num: 15, special: '#FFDF00' },
+      { name: 'Éverton Ribeiro', pos: 'MED', rating: 81, num: 19, special: '#009C3B' },
+      { name: 'Neymar Jr.', pos: 'DEL', rating: 92, num: 10, special: '#FFDF00' },
+      { name: 'Vinícius Jr.', pos: 'DEL', rating: 91, num: 20, special: '#009C3B' },
+      { name: 'Rodrygo', pos: 'DEL', rating: 85, num: 19, special: '#FFDF00' },
+      { name: 'Raphinha', pos: 'DEL', rating: 84, num: 11, special: '#009C3B' },
+      { name: 'Gabriel Jesus', pos: 'DEL', rating: 83, num: 9, special: '#FFDF00' },
+      { name: 'Richarlison', pos: 'DEL', rating: 82, num: 18, special: '#009C3B' },
+      { name: 'Antony', pos: 'DEL', rating: 80, num: 21, special: '#FFDF00' },
+      { name: 'Gabriel Martinelli', pos: 'DEL', rating: 82, num: 22, special: '#009C3B' },
+      { name: 'Tite (DT)', pos: 'DT', rating: 88, num: 0, special: '#FFDF00' },
+    ]
+  },
+  {
+    id: 'argentina',
+    name: 'Argentina',
+    country: 'ARGENTINA',
+    flag: '🇦🇷',
+    emoji: '🔵',
+    worldCups: 3,
+    color1: '#74ACDF',
+    color2: '#FFFFFF',
+    textColor: '#000',
+    founded: 1893,
+    players: [
+      { name: 'Emiliano Martínez', pos: 'POR', rating: 90, num: 23, special: '#74ACDF' },
+      { name: 'Franco Armani', pos: 'POR', rating: 82, num: 1, special: '#fff' },
+      { name: 'Nahuel Molina', pos: 'DEF', rating: 83, num: 26, special: '#74ACDF' },
+      { name: 'Cristian Romero', pos: 'DEF', rating: 86, num: 13, special: '#fff' },
+      { name: 'Nicolás Otamendi', pos: 'DEF', rating: 84, num: 19, special: '#74ACDF' },
+      { name: 'Marcos Acuña', pos: 'DEF', rating: 82, num: 8, special: '#fff' },
+      { name: 'Lisandro Martínez', pos: 'DEF', rating: 84, num: 14, special: '#74ACDF' },
+      { name: 'Nicolás Tagliafico', pos: 'DEF', rating: 81, num: 3, special: '#fff' },
+      { name: 'Rodrigo De Paul', pos: 'MED', rating: 86, num: 7, special: '#74ACDF' },
+      { name: 'Leandro Paredes', pos: 'MED', rating: 83, num: 5, special: '#fff' },
+      { name: 'Alexis Mac Allister', pos: 'MED', rating: 85, num: 20, special: '#74ACDF' },
+      { name: 'Enzo Fernández', pos: 'MED', rating: 85, num: 24, special: '#fff' },
+      { name: 'Giovani Lo Celso', pos: 'MED', rating: 82, num: 18, special: '#74ACDF' },
+      { name: 'Guido Rodríguez', pos: 'MED', rating: 81, num: 16, special: '#fff' },
+      { name: 'Lionel Messi', pos: 'DEL', rating: 95, num: 10, special: '#FFD700' },
+      { name: 'Ángel Di María', pos: 'DEL', rating: 87, num: 11, special: '#74ACDF' },
+      { name: 'Julián Álvarez', pos: 'DEL', rating: 87, num: 9, special: '#fff' },
+      { name: 'Lautaro Martínez', pos: 'DEL', rating: 87, num: 22, special: '#74ACDF' },
+      { name: 'Paulo Dybala', pos: 'DEL', rating: 85, num: 21, special: '#fff' },
+      { name: 'Joaquín Correa', pos: 'DEL', rating: 80, num: 19, special: '#74ACDF' },
+      { name: 'Alejandro Garnacho', pos: 'DEL', rating: 82, num: 17, special: '#fff' },
+      { name: 'Thiago Almada', pos: 'DEL', rating: 79, num: 25, special: '#74ACDF' },
+      { name: 'Lionel Scaloni (DT)', pos: 'DT', rating: 90, num: 0, special: '#FFD700' },
+    ]
+  },
+  {
+    id: 'alemania',
+    name: 'Alemania',
+    country: 'ALEMANIA',
+    flag: '🇩🇪',
+    emoji: '⚫',
+    worldCups: 4,
+    color1: '#000000',
+    color2: '#DD0000',
+    textColor: '#fff',
+    founded: 1900,
+    players: [
+      { name: 'Manuel Neuer', pos: 'POR', rating: 91, num: 1, special: '#DD0000' },
+      { name: 'Marc-André ter Stegen', pos: 'POR', rating: 89, num: 22, special: '#000' },
+      { name: 'Joshua Kimmich', pos: 'DEF', rating: 89, num: 6, special: '#DD0000' },
+      { name: 'Antonio Rüdiger', pos: 'DEF', rating: 87, num: 2, special: '#000' },
+      { name: 'Matthias Ginter', pos: 'DEF', rating: 83, num: 14, special: '#DD0000' },
+      { name: 'Robin Gosens', pos: 'DEF', rating: 82, num: 5, special: '#000' },
+      { name: 'David Raum', pos: 'DEF', rating: 81, num: 19, special: '#DD0000' },
+      { name: 'Niklas Süle', pos: 'DEF', rating: 83, num: 15, special: '#000' },
+      { name: 'Leon Goretzka', pos: 'MED', rating: 86, num: 8, special: '#DD0000' },
+      { name: 'İlkay Gündoğan', pos: 'MED', rating: 87, num: 21, special: '#000' },
+      { name: 'Toni Kroos', pos: 'MED', rating: 87, num: 8, special: '#DD0000' },
+      { name: 'Jamal Musiala', pos: 'MED', rating: 86, num: 14, special: '#000' },
+      { name: 'Florian Wirtz', pos: 'MED', rating: 85, num: 17, special: '#DD0000' },
+      { name: 'Kai Havertz', pos: 'MED', rating: 84, num: 7, special: '#000' },
+      { name: 'Thomas Müller', pos: 'DEL', rating: 87, num: 25, special: '#DD0000' },
+      { name: 'Serge Gnabry', pos: 'DEL', rating: 85, num: 10, special: '#000' },
+      { name: 'Leroy Sané', pos: 'DEL', rating: 86, num: 19, special: '#DD0000' },
+      { name: 'Karim Adeyemi', pos: 'DEL', rating: 82, num: 27, special: '#000' },
+      { name: 'Niclas Füllkrug', pos: 'DEL', rating: 82, num: 9, special: '#DD0000' },
+      { name: 'Kevin Volland', pos: 'DEL', rating: 81, num: 13, special: '#000' },
+      { name: 'Mario Götze', pos: 'DEL', rating: 82, num: 10, special: '#DD0000' },
+      { name: 'Youssoufa Moukoko', pos: 'DEL', rating: 80, num: 26, special: '#000' },
+      { name: 'Hansi Flick (DT)', pos: 'DT', rating: 87, num: 0, special: '#DD0000' },
+    ]
+  },
+  {
+    id: 'holanda',
+    name: 'Holanda',
+    country: 'PAÍSES BAJOS',
+    flag: '🇳🇱',
+    emoji: '🟠',
+    worldCups: 0,
+    color1: '#FF6600',
+    color2: '#003DA5',
+    textColor: '#fff',
+    founded: 1889,
+    players: [
+      { name: 'Remko Pasveer', pos: 'POR', rating: 82, num: 1, special: '#FF6600' },
+      { name: 'Andries Noppert', pos: 'POR', rating: 80, num: 23, special: '#003DA5' },
+      { name: 'Denzel Dumfries', pos: 'DEF', rating: 84, num: 22, special: '#FF6600' },
+      { name: 'Virgil van Dijk', pos: 'DEF', rating: 90, num: 4, special: '#003DA5' },
+      { name: 'Matthijs de Ligt', pos: 'DEF', rating: 86, num: 3, special: '#FF6600' },
+      { name: 'Daley Blind', pos: 'DEF', rating: 82, num: 17, special: '#003DA5' },
+      { name: 'Nathan Aké', pos: 'DEF', rating: 83, num: 5, special: '#FF6600' },
+      { name: 'Jurriën Timber', pos: 'DEF', rating: 83, num: 13, special: '#003DA5' },
+      { name: 'Frenkie de Jong', pos: 'MED', rating: 88, num: 21, special: '#FF6600' },
+      { name: 'Georginio Wijnaldum', pos: 'MED', rating: 85, num: 8, special: '#003DA5' },
+      { name: 'Davy Klaassen', pos: 'MED', rating: 81, num: 14, special: '#FF6600' },
+      { name: 'Teun Koopmeiners', pos: 'MED', rating: 83, num: 20, special: '#003DA5' },
+      { name: 'Marten de Roon', pos: 'MED', rating: 81, num: 15, special: '#FF6600' },
+      { name: 'Ryan Gravenberch', pos: 'MED', rating: 83, num: 11, special: '#003DA5' },
+      { name: 'Memphis Depay', pos: 'DEL', rating: 86, num: 10, special: '#FF6600' },
+      { name: 'Steven Bergwijn', pos: 'DEL', rating: 82, num: 7, special: '#003DA5' },
+      { name: 'Cody Gakpo', pos: 'DEL', rating: 84, num: 11, special: '#FF6600' },
+      { name: 'Donyell Malen', pos: 'DEL', rating: 82, num: 12, special: '#003DA5' },
+      { name: 'Vincent Janssen', pos: 'DEL', rating: 80, num: 9, special: '#FF6600' },
+      { name: 'Wout Weghorst', pos: 'DEL', rating: 81, num: 19, special: '#003DA5' },
+      { name: 'Arnaut Danjuma', pos: 'DEL', rating: 81, num: 18, special: '#FF6600' },
+      { name: 'Noa Lang', pos: 'DEL', rating: 80, num: 23, special: '#003DA5' },
+      { name: 'Louis van Gaal (DT)', pos: 'DT', rating: 86, num: 0, special: '#FF6600' },
+    ]
+  },
+  {
+    id: 'inglaterra',
+    name: 'Inglaterra',
+    country: 'INGLATERRA',
+    flag: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
+    emoji: '⚪',
+    worldCups: 1,
+    color1: '#FFFFFF',
+    color2: '#003057',
+    textColor: '#000',
+    founded: 1863,
+    players: [
+      { name: 'Jordan Pickford', pos: 'POR', rating: 86, num: 1, special: '#003057' },
+      { name: 'Nick Pope', pos: 'POR', rating: 83, num: 22, special: '#fff' },
+      { name: 'Kyle Walker', pos: 'DEF', rating: 85, num: 2, special: '#003057' },
+      { name: 'Harry Maguire', pos: 'DEF', rating: 83, num: 6, special: '#fff' },
+      { name: 'John Stones', pos: 'DEF', rating: 85, num: 5, special: '#003057' },
+      { name: 'Luke Shaw', pos: 'DEF', rating: 83, num: 3, special: '#fff' },
+      { name: 'Trent Alexander-Arnold', pos: 'DEF', rating: 87, num: 12, special: '#003057' },
+      { name: 'Conor Coady', pos: 'DEF', rating: 80, num: 16, special: '#fff' },
+      { name: 'Declan Rice', pos: 'MED', rating: 87, num: 4, special: '#003057' },
+      { name: 'Jude Bellingham', pos: 'MED', rating: 90, num: 10, special: '#fff' },
+      { name: 'Jordan Henderson', pos: 'MED', rating: 83, num: 8, special: '#003057' },
+      { name: 'Kalvin Phillips', pos: 'MED', rating: 82, num: 14, special: '#fff' },
+      { name: 'Mason Mount', pos: 'MED', rating: 84, num: 19, special: '#003057' },
+      { name: 'Phil Foden', pos: 'MED', rating: 87, num: 20, special: '#fff' },
+      { name: 'Harry Kane', pos: 'DEL', rating: 91, num: 9, special: '#003057' },
+      { name: 'Raheem Sterling', pos: 'DEL', rating: 84, num: 7, special: '#fff' },
+      { name: 'Bukayo Saka', pos: 'DEL', rating: 86, num: 17, special: '#003057' },
+      { name: 'Marcus Rashford', pos: 'DEL', rating: 84, num: 11, special: '#fff' },
+      { name: 'Jack Grealish', pos: 'DEL', rating: 84, num: 7, special: '#003057' },
+      { name: 'Callum Wilson', pos: 'DEL', rating: 81, num: 21, special: '#fff' },
+      { name: 'Tammy Abraham', pos: 'DEL', rating: 81, num: 18, special: '#003057' },
+      { name: 'Ivan Toney', pos: 'DEL', rating: 82, num: 15, special: '#fff' },
+      { name: 'Gareth Southgate (DT)', pos: 'DT', rating: 82, num: 0, special: '#003057' },
+    ]
+  },
+  {
+    id: 'francia',
+    name: 'Francia',
+    country: 'FRANCE',
+    flag: '🇫🇷',
+    emoji: '🔵',
+    worldCups: 2,
+    color1: '#002395',
+    color2: '#ED2939',
+    textColor: '#fff',
+    founded: 1919,
+    players: [
+      { name: 'Hugo Lloris', pos: 'POR', rating: 87, num: 1, special: '#002395' },
+      { name: 'Mike Maignan', pos: 'POR', rating: 87, num: 16, special: '#ED2939' },
+      { name: 'Benjamin Pavard', pos: 'DEF', rating: 84, num: 5, special: '#002395' },
+      { name: 'Raphaël Varane', pos: 'DEF', rating: 86, num: 4, special: '#ED2939' },
+      { name: 'Dayot Upamecano', pos: 'DEF', rating: 84, num: 23, special: '#002395' },
+      { name: 'Lucas Hernández', pos: 'DEF', rating: 83, num: 21, special: '#ED2939' },
+      { name: 'Théo Hernández', pos: 'DEF', rating: 84, num: 22, special: '#002395' },
+      { name: 'Jules Koundé', pos: 'DEF', rating: 84, num: 5, special: '#ED2939' },
+      { name: 'N\'Golo Kanté', pos: 'MED', rating: 89, num: 13, special: '#002395' },
+      { name: 'Paul Pogba', pos: 'MED', rating: 86, num: 6, special: '#ED2939' },
+      { name: 'Aurélien Tchouaméni', pos: 'MED', rating: 85, num: 8, special: '#002395' },
+      { name: 'Adrien Rabiot', pos: 'MED', rating: 83, num: 14, special: '#ED2939' },
+      { name: 'Matteo Guendouzi', pos: 'MED', rating: 82, num: 18, special: '#002395' },
+      { name: 'Eduardo Camavinga', pos: 'MED', rating: 83, num: 8, special: '#ED2939' },
+      { name: 'Kylian Mbappé', pos: 'DEL', rating: 94, num: 10, special: '#FFD700' },
+      { name: 'Antoine Griezmann', pos: 'DEL', rating: 88, num: 7, special: '#002395' },
+      { name: 'Ousmane Dembélé', pos: 'DEL', rating: 85, num: 11, special: '#ED2939' },
+      { name: 'Olivier Giroud', pos: 'DEL', rating: 83, num: 9, special: '#002395' },
+      { name: 'Kingsley Coman', pos: 'DEL', rating: 84, num: 20, special: '#ED2939' },
+      { name: 'Marcus Thuram', pos: 'DEL', rating: 82, num: 15, special: '#002395' },
+      { name: 'Randal Kolo Muani', pos: 'DEL', rating: 82, num: 12, special: '#ED2939' },
+      { name: 'Christopher Nkunku', pos: 'DEL', rating: 84, num: 16, special: '#002395' },
+      { name: 'Didier Deschamps (DT)', pos: 'DT', rating: 89, num: 0, special: '#FFD700' },
+    ]
+  },
+  {
+    id: 'espana',
+    name: 'España',
+    country: 'ESPAÑA',
+    flag: '🇪🇸',
+    emoji: '🔴',
+    worldCups: 1,
+    color1: '#AA151B',
+    color2: '#F1BF00',
+    textColor: '#fff',
+    founded: 1913,
+    players: [
+      { name: 'Unai Simón', pos: 'POR', rating: 85, num: 1, special: '#AA151B' },
+      { name: 'David de Gea', pos: 'POR', rating: 85, num: 23, special: '#F1BF00' },
+      { name: 'Dani Carvajal', pos: 'DEF', rating: 85, num: 2, special: '#AA151B' },
+      { name: 'Aymeric Laporte', pos: 'DEF', rating: 85, num: 14, special: '#F1BF00' },
+      { name: 'Pau Torres', pos: 'DEF', rating: 83, num: 4, special: '#AA151B' },
+      { name: 'Jordi Alba', pos: 'DEF', rating: 85, num: 18, special: '#F1BF00' },
+      { name: 'Eric García', pos: 'DEF', rating: 81, num: 24, special: '#AA151B' },
+      { name: 'César Azpilicueta', pos: 'DEF', rating: 83, num: 15, special: '#F1BF00' },
+      { name: 'Sergio Busquets', pos: 'MED', rating: 87, num: 5, special: '#AA151B' },
+      { name: 'Pedri', pos: 'MED', rating: 89, num: 26, special: '#F1BF00' },
+      { name: 'Gavi', pos: 'MED', rating: 88, num: 9, special: '#AA151B' },
+      { name: 'Carlos Soler', pos: 'MED', rating: 82, num: 20, special: '#F1BF00' },
+      { name: 'Marcos Llorente', pos: 'MED', rating: 82, num: 16, special: '#AA151B' },
+      { name: 'Koke', pos: 'MED', rating: 82, num: 6, special: '#F1BF00' },
+      { name: 'Álvaro Morata', pos: 'DEL', rating: 83, num: 7, special: '#AA151B' },
+      { name: 'Ferran Torres', pos: 'DEL', rating: 84, num: 11, special: '#F1BF00' },
+      { name: 'Dani Olmo', pos: 'DEL', rating: 84, num: 8, special: '#AA151B' },
+      { name: 'Ansu Fati', pos: 'DEL', rating: 82, num: 9, special: '#F1BF00' },
+      { name: 'Pablo Sarabia', pos: 'DEL', rating: 82, num: 22, special: '#AA151B' },
+      { name: 'Marco Asensio', pos: 'DEL', rating: 83, num: 17, special: '#F1BF00' },
+      { name: 'Yeremi Pino', pos: 'DEL', rating: 80, num: 21, special: '#AA151B' },
+      { name: 'Mikel Oyarzabal', pos: 'DEL', rating: 82, num: 19, special: '#F1BF00' },
+      { name: 'Luis Enrique (DT)', pos: 'DT', rating: 86, num: 0, special: '#AA151B' },
+    ]
+  },
+  {
+    id: 'uruguay',
+    name: 'Uruguay',
+    country: 'URUGUAY',
+    flag: '🇺🇾',
+    emoji: '🔵',
+    worldCups: 2,
+    color1: '#5EB6E4',
+    color2: '#FFFFFF',
+    textColor: '#000',
+    founded: 1900,
+    players: [
+      { name: 'Sergio Rochet', pos: 'POR', rating: 81, num: 1, special: '#5EB6E4' },
+      { name: 'Fernando Muslera', pos: 'POR', rating: 82, num: 23, special: '#fff' },
+      { name: 'Nahitan Nández', pos: 'DEF', rating: 81, num: 15, special: '#5EB6E4' },
+      { name: 'Diego Godín', pos: 'DEF', rating: 82, num: 3, special: '#fff' },
+      { name: 'Sebastián Coates', pos: 'DEF', rating: 82, num: 2, special: '#5EB6E4' },
+      { name: 'Mathías Olivera', pos: 'DEF', rating: 81, num: 17, special: '#fff' },
+      { name: 'José María Giménez', pos: 'DEF', rating: 84, num: 14, special: '#5EB6E4' },
+      { name: 'Ronald Araújo', pos: 'DEF', rating: 85, num: 4, special: '#fff' },
+      { name: 'Rodrigo Bentancur', pos: 'MED', rating: 84, num: 8, special: '#5EB6E4' },
+      { name: 'Lucas Torreira', pos: 'MED', rating: 82, num: 5, special: '#fff' },
+      { name: 'Matías Vecino', pos: 'MED', rating: 82, num: 13, special: '#5EB6E4' },
+      { name: 'Federico Valverde', pos: 'MED', rating: 87, num: 14, special: '#fff' },
+      { name: 'Manuel Ugarte', pos: 'MED', rating: 83, num: 6, special: '#5EB6E4' },
+      { name: 'Giorgian De Arrascaeta', pos: 'MED', rating: 84, num: 10, special: '#fff' },
+      { name: 'Luis Suárez', pos: 'DEL', rating: 87, num: 9, special: '#5EB6E4' },
+      { name: 'Edinson Cavani', pos: 'DEL', rating: 84, num: 21, special: '#fff' },
+      { name: 'Darwin Núñez', pos: 'DEL', rating: 85, num: 11, special: '#5EB6E4' },
+      { name: 'Facundo Torres', pos: 'DEL', rating: 81, num: 22, special: '#fff' },
+      { name: 'Maximiliano Gómez', pos: 'DEL', rating: 80, num: 19, special: '#5EB6E4' },
+      { name: 'Agustín Canobbio', pos: 'DEL', rating: 79, num: 18, special: '#fff' },
+      { name: 'Matías Viña', pos: 'DEF', rating: 80, num: 3, special: '#5EB6E4' },
+      { name: 'Diego Rossi', pos: 'DEL', rating: 80, num: 16, special: '#fff' },
+      { name: 'Diego Alonso (DT)', pos: 'DT', rating: 82, num: 0, special: '#5EB6E4' },
+    ]
+  },
+  {
+    id: 'portugal',
+    name: 'Portugal',
+    country: 'PORTUGAL',
+    flag: '🇵🇹',
+    emoji: '🔴',
+    worldCups: 0,
+    color1: '#006600',
+    color2: '#FF0000',
+    textColor: '#fff',
+    founded: 1914,
+    players: [
+      { name: 'Rui Patrício', pos: 'POR', rating: 86, num: 1, special: '#006600' },
+      { name: 'Diogo Costa', pos: 'POR', rating: 84, num: 22, special: '#FF0000' },
+      { name: 'João Cancelo', pos: 'DEF', rating: 88, num: 20, special: '#006600' },
+      { name: 'Pepe', pos: 'DEF', rating: 82, num: 3, special: '#FF0000' },
+      { name: 'Rúben Dias', pos: 'DEF', rating: 89, num: 4, special: '#006600' },
+      { name: 'Nuno Mendes', pos: 'DEF', rating: 83, num: 19, special: '#FF0000' },
+      { name: 'Danilo Pereira', pos: 'DEF', rating: 82, num: 13, special: '#006600' },
+      { name: 'Diogo Dalot', pos: 'DEF', rating: 81, num: 2, special: '#FF0000' },
+      { name: 'Rúben Neves', pos: 'MED', rating: 85, num: 15, special: '#006600' },
+      { name: 'João Moutinho', pos: 'MED', rating: 82, num: 8, special: '#FF0000' },
+      { name: 'William Carvalho', pos: 'MED', rating: 82, num: 14, special: '#006600' },
+      { name: 'Bruno Fernandes', pos: 'MED', rating: 88, num: 8, special: '#FF0000' },
+      { name: 'Bernardo Silva', pos: 'MED', rating: 88, num: 10, special: '#006600' },
+      { name: 'Matheus Nunes', pos: 'MED', rating: 82, num: 21, special: '#FF0000' },
+      { name: 'Cristiano Ronaldo', pos: 'DEL', rating: 93, num: 7, special: '#FFD700' },
+      { name: 'João Félix', pos: 'DEL', rating: 86, num: 11, special: '#006600' },
+      { name: 'Rafael Leão', pos: 'DEL', rating: 85, num: 17, special: '#FF0000' },
+      { name: 'Gonçalo Ramos', pos: 'DEL', rating: 83, num: 9, special: '#006600' },
+      { name: 'Diogo Jota', pos: 'DEL', rating: 84, num: 11, special: '#FF0000' },
+      { name: 'André Silva', pos: 'DEL', rating: 81, num: 23, special: '#006600' },
+      { name: 'Ricardo Horta', pos: 'DEL', rating: 80, num: 18, special: '#FF0000' },
+      { name: 'Pedro Neto', pos: 'DEL', rating: 81, num: 16, special: '#006600' },
+      { name: 'Fernando Santos (DT)', pos: 'DT', rating: 84, num: 0, special: '#FFD700' },
+    ]
+  }
+];
+
+const POS_ICONS = { POR: '🧤', DEF: '🛡️', MED: '⚙️', DEL: '⚽', DT: '📋' };
+const POS_LABELS = { POR: 'PORTEROS', DEF: 'DEFENSORES', MED: 'MEDIOCAMPISTAS', DEL: 'DELANTEROS', DT: 'CUERPO TÉCNICO' };
+
+// Collected state
+const collected = {};
+TEAMS.forEach(t => { collected[t.id] = new Set(); });
+
+// Player emojis for variety
+const PLAYER_EMOJIS = ['🧑', '👱', '🧔', '👨', '🧑‍🦱', '👦', '🧑‍🦳', '👨‍🦱', '🧑‍🦲', '👨‍🦲'];
+
+// ================================================================
+// POOL GLOBAL DE TODAS LAS FIGURITAS
+// ================================================================
+let allPlayers = []; // { player, team } de todos los equipos
+let sobresAbiertos = 0;
+
+function buildAllPlayers() {
+  allPlayers = [];
+  TEAMS.forEach(team => {
+    team.players.forEach(player => {
+      allPlayers.push({ player, team });
+    });
+  });
+}
+
+// ================================================================
+// OPEN SOBRE MODAL (universal - cualquier figurita)
+// ================================================================
+function openSobre() {
+  const modal = document.getElementById('modalSobre');
+  const title = document.getElementById('modalSobreTitle');
+  const container = document.getElementById('cardsReveal');
+
+  title.innerHTML = `⚽ ¡ABRIENDO SOBRE MUNDIAL! 🎴`;
+  container.innerHTML = '';
+  modal.classList.add('active');
+
+  // Animar el sobre
+  const sobreEl = document.getElementById('sobreUnico');
+  sobreEl.style.transform = 'scale(0.95)';
+  setTimeout(() => sobreEl.style.transform = '', 200);
+
+  // Sacar 5 figuritas al azar del pool global
+  const shuffled = [...allPlayers].sort(() => Math.random() - 0.5).slice(0, 5);
+
+  const affectedTeams = new Set();
+
+  shuffled.forEach(({ player, team }, i) => {
+    const card = document.createElement('div');
+    card.className = 'reveal-card';
+    card.style.animationDelay = `${i * 0.12}s`;
+
+    const isNew = !collected[team.id].has(player.name);
+    if (isNew) collected[team.id].add(player.name);
+    affectedTeams.add(team.id);
+
+    const posColors = { POR: '#f39c12', DEF: '#27ae60', MED: '#2980b9', DEL: '#e74c3c', DT: '#8e44ad' };
+    const posColor = posColors[player.pos] || '#666';
+
+    card.innerHTML = `
+      <div class="card-back" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
+        <span style="font-size:36px;">⚽</span>
+        <span style="font-family:'Bebas Neue',cursive;font-size:13px;letter-spacing:2px;color:rgba(255,215,0,0.7);">MUNDIAL 2026</span>
+      </div>
+      <div class="card-front" style="background: linear-gradient(160deg, ${team.color1}dd, ${team.color2 || '#000'}aa); border: 2px solid ${player.special || team.color1}; border-radius: 10px; display: flex; flex-direction: column; overflow: hidden;">
+        <div style="height:3px;background:${player.special || team.color1};"></div>
+        <div style="padding:4px 6px;background:rgba(0,0,0,0.4);display:flex;align-items:center;gap:4px;">
+          <span style="font-size:14px;">${team.flag}</span>
+          <span style="font-family:'Bebas Neue',cursive;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,0.7);">${team.name.toUpperCase()}</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px;position:relative;">
+          ${isNew ? '<div style="position:absolute;top:2px;right:4px;background:#00c853;color:#fff;font-size:8px;padding:2px 5px;border-radius:8px;font-family:Bebas Neue,cursive;letter-spacing:1px;">NEW</div>' : '<div style="position:absolute;top:2px;right:4px;background:rgba(255,150,0,0.8);color:#fff;font-size:8px;padding:2px 5px;border-radius:8px;font-family:Bebas Neue,cursive;letter-spacing:1px;">REPETIDA</div>'}
+          <div style="font-size:38px;line-height:1;">${PLAYER_EMOJIS[Math.floor(Math.random()*PLAYER_EMOJIS.length)]}</div>
+          <div style="font-size:9px;background:${posColor}33;color:${posColor};padding:2px 6px;border-radius:6px;margin-top:4px;font-family:Bebas Neue,cursive;letter-spacing:1px;">${player.pos}</div>
+        </div>
+        <div style="padding:7px;background:rgba(0,0,0,0.5);">
+          <div style="font-family:Oswald,sans-serif;font-size:11px;font-weight:700;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#fff">${player.name}</div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:3px;">
+            <span style="font-size:9px;opacity:0.5;">#${player.num}</span>
+            <span style="font-family:Bebas Neue,cursive;font-size:14px;color:#FFD700;">${player.rating}</span>
+          </div>
+        </div>
+      </div>
+    `;
+
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    container.appendChild(card);
+  });
+
+  // Auto flip
+  setTimeout(() => {
+    document.querySelectorAll('.reveal-card').forEach((c, i) => {
+      setTimeout(() => c.classList.add('flipped'), i * 200);
+    });
+  }, 400);
+
+  // Actualizar contador
+  sobresAbiertos++;
+  const countEl = document.getElementById('sobresCount');
+  if (countEl) countEl.textContent = `SOBRES ABIERTOS: ${sobresAbiertos}`;
+
+  affectedTeams.forEach(tid => { updateProgress(tid); updateTeamPage(tid); });
+}
+
+function closeModal() {
+  document.getElementById('modalSobre').classList.remove('active');
+}
+
+// ================================================================
+// RENDER TEAM TABS
+// ================================================================
+function renderTabs() {
+  const tabs = document.getElementById('teamTabs');
+  tabs.innerHTML = '';
+  TEAMS.forEach((team, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'team-tab' + (i === 0 ? ' active' : '');
+    btn.dataset.team = team.id;
+    btn.innerHTML = `${team.flag} ${team.name}`;
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.team-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.team-page').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('page-' + team.id).classList.add('active');
+    });
+    tabs.appendChild(btn);
+  });
+}
+
+// ================================================================
+// RENDER ALBUM PAGES
+// ================================================================
+function renderAlbumPages() {
+  const section = document.getElementById('albumSection');
+  section.innerHTML = '';
+  TEAMS.forEach((team, ti) => {
+    const page = document.createElement('div');
+    page.className = 'team-page' + (ti === 0 ? ' active' : '');
+    page.id = 'page-' + team.id;
+
+    const totalPlayers = team.players.length;
+    const collectedCount = collected[team.id].size;
+    const pct = Math.round((collectedCount / totalPlayers) * 100);
+
+    const posOrder = ['POR', 'DEF', 'MED', 'DEL', 'DT'];
+    const byPos = {};
+    posOrder.forEach(p => byPos[p] = []);
+    team.players.forEach(pl => { if (byPos[pl.pos]) byPos[pl.pos].push(pl); });
+
+    let sectionsHTML = '';
+    posOrder.forEach(pos => {
+      if (!byPos[pos] || !byPos[pos].length) return;
+      const posColor = { POR: '#f39c12', DEF: '#27ae60', MED: '#2980b9', DEL: '#e74c3c', DT: '#8e44ad' }[pos];
+      sectionsHTML += `
+        <div class="position-section">
+          <div class="position-label" style="color:${posColor}">${POS_ICONS[pos]} ${POS_LABELS[pos]}</div>
+          <div class="stickers-grid">
+            ${byPos[pos].map(player => renderSticker(player, team, collected[team.id].has(player.name))).join('')}
+          </div>
+        </div>
+      `;
+    });
+
+    page.innerHTML = `
+      <div class="team-header" style="background: linear-gradient(135deg, ${team.color1}33, ${team.color2 || '#111'}22);">
+        <div class="team-flag-big">${team.flag}</div>
+        <div class="team-info-header">
+          <h2>${team.country}</h2>
+          <p>🏆 ${team.worldCups} Copa${team.worldCups !== 1 ? 's' : ''} del Mundo &nbsp;·&nbsp; ⚽ Fundada en ${team.founded}</p>
+        </div>
+        <div class="team-stats-bar">
+          <div class="stat-item">
+            <div class="stat-label">FIGURITAS</div>
+            <div class="stat-val">${totalPlayers}</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">COMPLETADO</div>
+            <div class="stat-val" id="pct-${team.id}">${pct}%</div>
+          </div>
+        </div>
+      </div>
+      <div class="progress-section">
+        <span class="progress-label">📋 PROGRESO DEL ÁLBUM</span>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="bar-${team.id}" style="width:${pct}%"></div>
+        </div>
+        <span class="progress-count" id="count-${team.id}">${collectedCount}/${totalPlayers}</span>
+        <button class="collect-btn" onclick="collectAll('${team.id}')">✨ Completar todo</button>
+      </div>
+      <div id="grid-${team.id}">
+        ${sectionsHTML}
+      </div>
+    `;
+
+    // Click to collect individual sticker
+    page.addEventListener('click', e => {
+      const card = e.target.closest('.sticker-card[data-player]');
+      if (!card) return;
+      const playerName = card.dataset.player;
+      const teamId = card.dataset.team;
+      if (!collected[teamId].has(playerName)) {
+        collected[teamId].add(playerName);
+        card.classList.add('collected');
+        updateProgress(teamId);
+        showToast(`⭐ ¡${playerName} conseguido!`);
+      }
+    });
+
+    section.appendChild(page);
+  });
+}
+
+function renderSticker(player, team, isCollected) {
+  const posColor = { POR: '#f39c12', DEF: '#27ae60', MED: '#2980b9', DEL: '#e74c3c', DT: '#8e44ad' }[player.pos] || '#666';
+  const bgGradient = `linear-gradient(160deg, ${team.color1}cc, ${team.color2 || team.color1}88)`;
+  const checkmark = isCollected ? 'collected' : '';
+  return `
+    <div class="sticker-card ${checkmark}" data-player="${player.name}" data-team="${team.id}"
+         style="background:${bgGradient};">
+      <div class="sticker-special" style="background:${player.special || team.color1};"></div>
+      <div class="sticker-rating">${player.rating}</div>
+      <div class="sticker-img-area" style="background:linear-gradient(180deg,${team.color1}44,transparent);">
+        <div class="player-emoji">${PLAYER_EMOJIS[Math.floor(Math.random()*PLAYER_EMOJIS.length)]}</div>
+        <div class="player-number-big">${player.num}</div>
+      </div>
+      <div class="sticker-info">
+        <span class="sticker-number">${POS_ICONS[player.pos]} ${player.pos} · #${player.num}</span>
+        <div class="sticker-name">${player.name}</div>
+        <div class="sticker-pos" style="color:${posColor}">${POS_LABELS[player.pos]}</div>
+      </div>
+    </div>
+  `;
+}
+
+function collectAll(teamId) {
+  const team = TEAMS.find(t => t.id === teamId);
+  team.players.forEach(p => collected[teamId].add(p.name));
+  updateProgress(teamId);
+  updateTeamPage(teamId);
+  showToast(`🏆 ¡Álbum de ${team.name} completado!`);
+}
+
+function updateProgress(teamId) {
+  const team = TEAMS.find(t => t.id === teamId);
+  const total = team.players.length;
+  const count = collected[teamId].size;
+  const pct = Math.round((count / total) * 100);
+  const bar = document.getElementById('bar-' + teamId);
+  const pctEl = document.getElementById('pct-' + teamId);
+  const countEl = document.getElementById('count-' + teamId);
+  if (bar) bar.style.width = pct + '%';
+  if (pctEl) pctEl.textContent = pct + '%';
+  if (countEl) countEl.textContent = `${count}/${total}`;
+}
+
+function updateTeamPage(teamId) {
+  const team = TEAMS.find(t => t.id === teamId);
+  const grid = document.getElementById('grid-' + teamId);
+  if (!grid) return;
+  const posOrder = ['POR', 'DEF', 'MED', 'DEL', 'DT'];
+  const byPos = {};
+  posOrder.forEach(p => byPos[p] = []);
+  team.players.forEach(pl => { if (byPos[pl.pos]) byPos[pl.pos].push(pl); });
+  let html = '';
+  posOrder.forEach(pos => {
+    if (!byPos[pos]?.length) return;
+    const posColor = { POR: '#f39c12', DEF: '#27ae60', MED: '#2980b9', DEL: '#e74c3c', DT: '#8e44ad' }[pos];
+    html += `<div class="position-section">
+      <div class="position-label" style="color:${posColor}">${POS_ICONS[pos]} ${POS_LABELS[pos]}</div>
+      <div class="stickers-grid">${byPos[pos].map(p => renderSticker(p, team, collected[teamId].has(p.name))).join('')}</div>
+    </div>`;
+  });
+  grid.innerHTML = html;
+}
+
+function updateAllTeamPages() {
+  TEAMS.forEach(t => {
+    updateProgress(t.id);
+    updateTeamPage(t.id);
+  });
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// Close modal clicking outside
+document.getElementById('modalSobre').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ================================================================
+// SOBRES DISPONIBLES
+// ================================================================
+let sobresDisponibles = 1; // Empieza con 1 sobre
+
+function actualizarBotonSobre() {
+  const btn = document.getElementById('btnAbrirSobre');
+  const disp = document.getElementById('sobreDisponibles');
+  if (sobresDisponibles > 0) {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+    disp.textContent = `📦 SOBRES DISPONIBLES: ${sobresDisponibles}`;
+    disp.style.color = 'var(--gold)';
+  } else {
+    btn.disabled = true;
+    btn.style.opacity = '0.35';
+    btn.style.cursor = 'not-allowed';
+    disp.textContent = '📦 SIN SOBRES — ¡Jugá el Quiz!';
+    disp.style.color = 'rgba(255,255,255,0.3)';
+  }
+}
+
+// ================================================================
+// QUIZ DATA — 50 PREGUNTAS
+// ================================================================
+const QUIZ_QUESTIONS = [
+  { q: '¿Cuántas Copas del Mundo ha ganado Brasil?', opts: ['4','5','3','6'], a: 1 },
+  { q: '¿En qué año se jugó el primer Mundial de fútbol?', opts: ['1930','1934','1926','1928'], a: 0 },
+  { q: '¿Qué país organizó el Mundial de 1930?', opts: ['Argentina','Brasil','Uruguay','Chile'], a: 2 },
+  { q: '¿Quién fue el máximo goleador del Mundial 2022 de Qatar?', opts: ['Messi','Mbappé','Álvarez','Giroud'], a: 1 },
+  { q: '¿Qué selección ganó el Mundial de 2022?', opts: ['Francia','Brasil','Argentina','Croacia'], a: 2 },
+  { q: '¿Cuántas veces fue campeona del mundo Alemania?', opts: ['3','4','5','2'], a: 1 },
+  { q: '¿En qué año ganó Argentina su primer Mundial?', opts: ['1978','1982','1986','1974'], a: 0 },
+  { q: '¿Cuántos goles marcó Mbappé en el Mundial 2022?', opts: ['6','7','8','5'], a: 2 },
+  { q: '¿Qué país ganó el Mundial de 2018?', opts: ['Croacia','Bélgica','Francia','Uruguay'], a: 2 },
+  { q: '¿Dónde se disputó el Mundial de 2014?', opts: ['Argentina','Colombia','Chile','Brasil'], a: 3 },
+  { q: '¿Quién ganó el Mundial de 2014?', opts: ['Brasil','Argentina','Holanda','Alemania'], a: 3 },
+  { q: '¿Con cuántos goles Ronaldo (el fenómeno) es el máximo goleador brasileño en Mundiales?', opts: ['12','15','8','10'], a: 0 },
+  { q: '¿Qué selección ganó el Mundial de España 2010?', opts: ['Alemania','Países Bajos','España','Brasil'], a: 2 },
+  { q: '¿Qué jugador marcó el gol en la final del Mundial 2010?', opts: ['Villa','Torres','Iniesta','Xavi'], a: 2 },
+  { q: '¿Cuántos Mundiales ha ganado Italia?', opts: ['3','5','4','2'], a: 2 },
+  { q: '¿En qué años ganó Uruguay el Mundial?', opts: ['1930 y 1950','1930 y 1954','1934 y 1950','1930 y 1966'], a: 0 },
+  { q: '¿Qué país organizó el Mundial de 2002?', opts: ['Japón','Corea del Sur','Japón y Corea del Sur','China'], a: 2 },
+  { q: '¿Quién ganó el Balón de Oro del Mundial 2014?', opts: ['Neuer','Müller','Messi','Kroos'], a: 2 },
+  { q: '¿Cuántos goles hizo Miroslav Klose en Mundiales? (récord histórico)', opts: ['15','16','14','17'], a: 1 },
+  { q: '¿Qué equipo perdió la final del Mundial 2014?', opts: ['Brasil','Holanda','Argentina','Chile'], a: 2 },
+  { q: '¿En qué año ganó Francia su primer Mundial?', opts: ['1994','1998','2002','2006'], a: 1 },
+  { q: '¿Quién fue el Bota de Oro del Mundial de Francia 1998?', opts: ['Ronaldo','Suker','Bergkamp','Batistuta'], a: 0 },
+  { q: '¿Cuántos países participan en la fase de grupos del Mundial desde 1998?', opts: ['24','28','32','36'], a: 2 },
+  { q: '¿Dónde se celebró el Mundial de 1986?', opts: ['Argentina','Colombia','México','Brasil'], a: 2 },
+  { q: '¿Quién marcó el famoso "Gol del Siglo" en México 1986?', opts: ['Platini','Maradona','Zico','Rummenigge'], a: 1 },
+  { q: '¿Qué selección tiene más finales de Mundial jugadas?', opts: ['Brasil','Alemania','Italia','Argentina'], a: 1 },
+  { q: '¿En qué año se disputó el "Maracanazo"?', opts: ['1946','1950','1954','1958'], a: 1 },
+  { q: '¿Qué portero ganó el Guante de Oro en Qatar 2022?', opts: ['Lloris','Courtois','E. Martínez','Oblak'], a: 2 },
+  { q: '¿Cuántos goles hizo Pelé en toda su carrera mundialista?', opts: ['10','12','9','15'], a: 0 },
+  { q: '¿Qué país fue sede del Mundial de 1966?', opts: ['Francia','Italia','Alemania','Inglaterra'], a: 3 },
+  { q: '¿Quién ganó el Mundial de 1966?', opts: ['Portugal','Alemania','Brasil','Inglaterra'], a: 3 },
+  { q: '¿Cuál es la selección que más veces ha participado en el Mundial sin ganarlo?', opts: ['Portugal','Países Bajos','México','España'], a: 1 },
+  { q: '¿En qué Mundial debutó Messi?', opts: ['Corea-Japón 2002','Alemania 2006','Sudáfrica 2010','Brasil 2014'], a: 1 },
+  { q: '¿Qué país ganó el Mundial de 1958?', opts: ['Argentina','Uruguay','Brasil','Alemania'], a: 2 },
+  { q: '¿Qué jugador gritó "Soy el mejor del mundo" tras ganar el 2022?', opts: ['Mbappé','Messi','Di María','Álvarez'], a: 1 },
+  { q: '¿Quién fue el DT de Argentina en el Mundial 2022?', opts: ['Bielsa','Basile','Scaloni','Martino'], a: 2 },
+  { q: '¿Qué selección eliminó a Brasil en Qatar 2022?', opts: ['Serbia','Suiza','Croacia','Argentina'], a: 2 },
+  { q: '¿En qué fase fue eliminada España en Qatar 2022?', opts: ['Fase de grupos','Octavos','Cuartos','Semifinales'], a: 1 },
+  { q: '¿Quién marcó el hat-trick en la final del Mundial 2022?', opts: ['Messi','Giroud','Griezmann','Mbappé'], a: 3 },
+  { q: '¿Qué país organizará el Mundial de 2026?', opts: ['Brasil','EE.UU., Canadá y México','Arabia Saudita','Australia'], a: 1 },
+  { q: '¿Cuántos equipos participarán en el Mundial 2026?', opts: ['32','40','48','36'], a: 2 },
+  { q: '¿Cuál es el estadio donde se jugó la final del primer Mundial en 1930?', opts: ['Maracaná','Estadio Centenario','Azteca','Bernabéu'], a: 1 },
+  { q: '¿Quién fue el máximo goleador del Mundial de Brasil 2014?', opts: ['Messi','Robben','James Rodríguez','Müller'], a: 3 },
+  { q: '¿Cuántos goles hizo Alemania vs Brasil en la semifinal de 2014?', opts: ['5','6','7','8'], a: 2 },
+  { q: '¿Quién anotó el gol del triunfo de Alemania en la final de 2014?', opts: ['Müller','Götze','Klose','Schweinsteiger'], a: 1 },
+  { q: '¿Qué selección tiene el récord de más goles en una sola edición del Mundial?', opts: ['Brasil 1970','Francia 1998','Hungría 1954','Alemania 2014'], a: 2 },
+  { q: '¿En qué año fue el último Mundial en que jugó Diego Maradona?', opts: ['1990','1994','1986','1982'], a: 1 },
+  { q: '¿Qué árbitro cobró el penal en la final del 2022 que derivó en el primero de Mbappé?', opts: ['Lahoz','Siebert','Marciniak','Taylor'], a: 2 },
+  { q: '¿Cuántas veces llegó Holanda a la final del Mundial sin ganarla?', opts: ['2','3','4','1'], a: 1 },
+  { q: '¿Qué año ganó España su único Mundial?', opts: ['2006','2010','2014','2018'], a: 1 },
+  { q: '¿Qué jugador ganó el Balón de Oro en el Mundial de Qatar 2022?', opts: ['Mbappé','Modric','Messi','Álvarez'], a: 2 },
+];
+
+// ================================================================
+// QUIZ STATE
+// ================================================================
+let quizQuestions = [];
+let quizIndex = 0;
+let correctasSeguidasTotal = 0; // acumuladas para desbloquear sobre
+let rachaActual = 0;
+let respondida = false;
+
+function shuffleArray(arr) {
+  return [...arr].sort(() => Math.random() - 0.5);
+}
+
+function initQuiz() {
+  quizQuestions = shuffleArray(QUIZ_QUESTIONS);
+  quizIndex = 0;
+  loadQuestion();
+}
+
+function loadQuestion() {
+  respondida = false;
+  document.getElementById('quizNextBtn').style.display = 'none';
+  document.getElementById('quizFeedback').innerHTML = '';
+
+  if (quizIndex >= quizQuestions.length) {
+    quizQuestions = shuffleArray(QUIZ_QUESTIONS);
+    quizIndex = 0;
+  }
+
+  const q = quizQuestions[quizIndex];
+  document.getElementById('quizNum').textContent = `PREGUNTA ${quizIndex + 1}`;
+  document.getElementById('quizQuestion').textContent = q.q;
+  document.getElementById('quizStreak').textContent = `🔥 RACHA: ${rachaActual}`;
+
+  const optsEl = document.getElementById('quizOptions');
+  optsEl.innerHTML = '';
+
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = opt;
+    btn.style.cssText = `
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      color: #fff;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 15px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+    `;
+    btn.onmouseover = () => { if (!respondida) { btn.style.background = 'rgba(255,215,0,0.12)'; btn.style.borderColor = 'rgba(255,215,0,0.4)'; } };
+    btn.onmouseout = () => { if (!respondida) { btn.style.background = 'rgba(255,255,255,0.05)'; btn.style.borderColor = 'rgba(255,255,255,0.12)'; } };
+    btn.addEventListener('click', () => responder(i, q.a));
+    optsEl.appendChild(btn);
+  });
+}
+
+function responder(elegida, correcta) {
+  if (respondida) return;
+  respondida = true;
+
+  const btns = document.querySelectorAll('#quizOptions button');
+  btns.forEach((btn, i) => {
+    btn.style.cursor = 'default';
+    btn.onmouseover = null;
+    btn.onmouseout = null;
+    if (i === correcta) {
+      btn.style.background = 'rgba(0,200,83,0.25)';
+      btn.style.borderColor = '#00c853';
+      btn.style.color = '#69f0ae';
+    } else if (i === elegida) {
+      btn.style.background = 'rgba(233,69,96,0.25)';
+      btn.style.borderColor = '#e94560';
+      btn.style.color = '#ff8a80';
+    } else {
+      btn.style.opacity = '0.4';
+    }
+  });
+
+  const esCorrecta = elegida === correcta;
+  const feedback = document.getElementById('quizFeedback');
+
+  if (esCorrecta) {
+    rachaActual++;
+    correctasSeguidasTotal++;
+    feedback.innerHTML = `<div style="background:rgba(0,200,83,0.15);border:1px solid rgba(0,200,83,0.4);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;"><span style="font-size:28px;">✅</span><div><div style="font-family:'Bebas Neue',cursive;font-size:17px;letter-spacing:1px;color:#69f0ae;">¡CORRECTO! ${rachaActual > 1 ? '🔥 Racha de '+rachaActual : ''}</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;">${correctasSeguidasTotal % 5 === 0 ? '' : `${5 - (correctasSeguidasTotal % 5)} respuesta(s) más para el próximo sobre`}</div></div></div>`;
+
+    // Actualizar barra de progreso
+    const progActual = correctasSeguidasTotal % 5;
+    document.getElementById('quizBar').style.width = (progActual === 0 ? 100 : progActual * 20) + '%';
+    document.getElementById('quizProgText').textContent = `${progActual === 0 ? 5 : progActual} / 5`;
+
+    // ¿Ganó un sobre?
+    if (correctasSeguidasTotal % 5 === 0) {
+      sobresDisponibles++;
+      actualizarBotonSobre();
+      document.getElementById('quizBar').style.width = '100%';
+      document.getElementById('quizBar').style.background = 'linear-gradient(90deg,#FFD700,#FFA500)';
+      setTimeout(() => {
+        document.getElementById('quizBar').style.background = 'linear-gradient(90deg,#00c853,#69f0ae)';
+        document.getElementById('quizBar').style.width = '0%';
+        document.getElementById('quizProgText').textContent = '0 / 5';
+      }, 1200);
+      showToast(`🎁 ¡GANASTE UN SOBRE! Ya tenés ${sobresDisponibles} disponible(s)`);
+    }
+  } else {
+    rachaActual = 0;
+    document.getElementById('quizStreak').textContent = `🔥 RACHA: 0`;
+    feedback.innerHTML = `<div style="background:rgba(233,69,96,0.15);border:1px solid rgba(233,69,96,0.4);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;"><span style="font-size:28px;">❌</span><div><div style="font-family:'Bebas Neue',cursive;font-size:17px;letter-spacing:1px;color:#ff8a80;">INCORRECTO</div><div style="font-size:13px;color:rgba(255,255,255,0.5);margin-top:4px;">La correcta era: <strong style="color:#fff">${QUIZ_QUESTIONS.find(x=>x===quizQuestions[quizIndex])?.opts[correcta] || quizQuestions[quizIndex].opts[correcta]}</strong></div></div></div>`;
+  }
+
+  document.getElementById('quizStreak').textContent = `🔥 RACHA: ${rachaActual}`;
+  document.getElementById('quizNextBtn').style.display = 'inline-block';
+  quizIndex++;
+}
+
+function nextQuestion() {
+  loadQuestion();
+}
+
+// ================================================================
+// PATCH openSobre para consumir sobres disponibles
+// ================================================================
+const _origOpenSobre = openSobre;
+openSobre = function() {
+  if (sobresDisponibles <= 0) {
+    showToast('⚠️ No tenés sobres. ¡Jugá el Quiz para ganar!');
+    return;
+  }
+  sobresDisponibles--;
+  actualizarBotonSobre();
+  _origOpenSobre();
+};
+
+// ================================================================
+// INIT
+// ================================================================
+buildAllPlayers();
+renderTabs();
+renderAlbumPages();
+actualizarBotonSobre();
+initQuiz();
+</script>
+</body>
+</html>
